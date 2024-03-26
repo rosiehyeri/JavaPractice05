@@ -1,3 +1,4 @@
+
 package com.javaex.ex07;
 
 import java.util.Scanner;
@@ -11,17 +12,35 @@ public class FriendApp {
 
         System.out.println("친구를 3명 등록해 주세요");
 
-        
         //for문 시작
         //친구정보 3명 입력 로직 --> 반복문 사용
-            
-      
+        for (int i = 0; i < 3; i++) {
+        	//데이터 입력
+        	String name, hp, school;
+        	
+        	System.out.print("이름: ");
+        	name = sc.next();
+        	System.out.print("핸드폰: ");
+        	hp = sc.next();
+        	System.out.print("학교: ");
+        	school = sc.next();
+        	
+        	Friend newFriend = new Friend();		//메모리상에 friend 만들어줌
+        	newFriend.setName(name);  		//name 필드 세팅
+        	newFriend.setHp(hp);
+        	newFriend.setSchool(school);
+        	
+        	//배열에 참조주소 할당
+        	friendArray[i] = newFriend;
+        	System.out.println("------------------------------------");
+        }
         //for문 끝
         
         
         // 친구정보 출력
         for (int i = 0; i < friendArray.length; i++) {
             //친구정보 출력 메소드 호출
+        	friendArray[i].showInfo();
         }
 
         sc.close();
